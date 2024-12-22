@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import AppBar from "../../components/AppBar";
+import AppBar from "~/components/AppBar";
 import BoardBar from "./BoardBar";
 import BoxContent from "./BoardContent";
 
