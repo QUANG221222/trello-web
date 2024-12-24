@@ -34,6 +34,7 @@ function AppBar() {
           <SvgIcon
             component={TrelloIcon}
             inheritViewBox
+            fontSize="small"
             sx={{ color: "primary.main" }}
           />
           <Typography
