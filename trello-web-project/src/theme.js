@@ -55,6 +55,26 @@ const theme = extendTheme({
         }),
       },
     },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          "*::-webkit-scrollbar": {
+            width: "4px",
+            height: "4px",
+          },
+          "*::-webkit-scrollbar-thumb": {
+            background: " #ecf0f1",
+            //   "linear-gradient(to right bottom,rgb(49, 150, 128),rgb(38, 157, 96))",
+            borderRadius: "8px",
+          },
+          "*::-webkit-scrollbar-thumb:hover": {
+            background: "#27ae60",
+            // "linear-gradient(to right bottom,rgb(35, 107, 92),rgb(25, 97, 60))",
+            borderRadius: "8px",
+          },
+        },
+      },
+    },
   },
   // ...other properties
 });
