@@ -4,7 +4,18 @@ import viteSvgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), viteSvgr()],
+  optimizeDeps: {
+    include: ["@emotion/react", "@emotion/styled", "@mui/material/Tooltip"],
+  },
+  plugins: [
+    react({
+      jsxImportSource: "@emotion/react",
+      babel: {
+        plugins: ["@emotion/babel-plugin"],
+      },
+    }),
+    viteSvgr(),
+  ],
   // base: './'
   resolve: {
     alias: [{ find: "~", replacement: "/src" }],
