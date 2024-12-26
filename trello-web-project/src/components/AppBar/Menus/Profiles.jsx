@@ -33,7 +33,7 @@ function Profiles() {
             aria-expanded={open ? "true" : undefined}
           >
             <Avatar
-              sx={{ width: 30, height: 30 }}
+              sx={{ width: 34, height: 34 }}
               src="https://avatars.githubusercontent.com/u/151104129?v=4"
               alt="QuangCoder"
             />
