@@ -10,12 +10,12 @@ const theme = extendTheme({
     boardBarHeight: "60px",
   },
   colorSchemes: {
-    light: {
-      palette: { primary: teal, secondary: deepOrange },
-    },
-    dark: {
-      palette: { primary: cyan, secondary: orange },
-    },
+    //   light: {
+    //     palette: { primary: teal, secondary: deepOrange },
+    //   },
+    //   dark: {
+    //     palette: { primary: cyan, secondary: orange },
+    //   },
   },
   components: {
     // Name of the component
@@ -25,34 +25,42 @@ const theme = extendTheme({
         root: {
           // Some CSS
           textTransform: "none",
+          borderWidth: "0.5px",
+          // "&:hover": { borderWidth: "0.5px" },
         },
       },
     },
     MuiOutlinedInput: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+        root: {
+          // color: theme.palette.primary.main,
           fontSize: "0.875rem",
-          ".MuiOutlinedInput-notchedOutline": {
-            borderColor: theme.palette.primary.light,
-          },
-          "&:hover": {
-            ".MuiOutlinedInput-notchedOutline": {
-              borderColor: theme.palette.primary.main,
-            },
-          },
+          // ".MuiOutlinedInput-notchedOutline": {
+          //   borderColor: theme.palette.primary.light,
+          // },
+          // "&:hover": {
+          //   ".MuiOutlinedInput-notchedOutline": {
+          //     borderColor: theme.palette.primary.main,
+          //   },
+          // },
           "& fieldset": {
+            borderWidth: "0.5px !important",
+          },
+          "&:hover fieldset": {
             borderWidth: "1px !important",
           },
-        }),
+          "&.Mui-focused fieldset": {
+            borderWidth: "1px !important",
+          },
+        },
       },
     },
     MuiInputLabel: {
       styleOverrides: {
-        root: ({ theme }) => ({
-          color: theme.palette.primary.light,
+        root: {
+          // color: theme.palette.primary.light,
           fontSize: "0.875rem",
-        }),
+        },
       },
     },
     MuiCssBaseline: {
@@ -63,12 +71,12 @@ const theme = extendTheme({
             height: "4px",
           },
           "*::-webkit-scrollbar-thumb": {
-            background: " #ecf0f1",
+            background: " #dcdde1",
             //   "linear-gradient(to right bottom,rgb(49, 150, 128),rgb(38, 157, 96))",
             borderRadius: "8px",
           },
           "*::-webkit-scrollbar-thumb:hover": {
-            background: "#27ae60",
+            background: "white",
             // "linear-gradient(to right bottom,rgb(35, 107, 92),rgb(25, 97, 60))",
             borderRadius: "8px",
           },
