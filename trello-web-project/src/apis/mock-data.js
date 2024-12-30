@@ -17,13 +17,13 @@ export const mockData = {
         boardId: "board-id-01",
         title: "To Do Column 01",
         cardOrderIds: [
-          "card-id-07",
+          "card-id-01",
           "card-id-02",
           "card-id-03",
           "card-id-04",
           "card-id-05",
           "card-id-06",
-          "card-id-01",
+          "card-id-07",
         ],
         cards: [
           {
