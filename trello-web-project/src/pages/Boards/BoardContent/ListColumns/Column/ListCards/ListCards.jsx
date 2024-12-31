@@ -1,5 +1,5 @@
-import Box from "@mui/material/Box";
-import Card from "./Card/Card";
+import Box from "@mui/material/Box"
+import Card from "./Card/Card"
 
 function ListCards({ cards }) {
   return (
@@ -20,18 +20,18 @@ function ListCards({ cards }) {
                 ${theme.trello.columnFooterHeight}
                 )`,
         "&::-webkit-scrollbar-thumb": {
-          background: " #ced0da",
+          background: " #ced0da"
         },
         "&::-webkit-scrollbar-thumb:hover": {
-          background: "#bfc2cf",
-        },
+          background: "#bfc2cf"
+        }
       }}
     >
       {cards?.map((card) => (
         <Card key={cards._id} card={card} />
       ))}
     </Box>
-  );
+  )
 }
 
-export default ListCards;
+export default ListCards

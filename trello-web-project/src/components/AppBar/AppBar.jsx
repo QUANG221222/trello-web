@@ -1,29 +1,28 @@
-import { useState } from "react";
-import Box from "@mui/material/Box";
-import ModeSelect from "~/components/ModeSelect/ModeSelect";
-import AppsIcon from "@mui/icons-material/Apps";
-import { ReactComponent as TrelloIcon } from "~/assets/trello.svg";
-import SvgIcon from "@mui/icons-material/Apps";
-import Typography from "@mui/material/Typography";
-import Workspaces from "./Menus/workspaces";
-import Recent from "./Menus/Recent";
-import Starred from "./Menus/Starred";
-import Templates from "./Menus/Templates";
-import Profiles from "./Menus/Profiles";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import Badge from "@mui/material/Badge";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import Tooltip from "@mui/material/Tooltip";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
-import theme from "~/theme";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
+import { useState } from "react"
+import Box from "@mui/material/Box"
+import ModeSelect from "~/components/ModeSelect/ModeSelect"
+import AppsIcon from "@mui/icons-material/Apps"
+import { ReactComponent as TrelloIcon } from "~/assets/trello.svg"
+import SvgIcon from "@mui/icons-material/Apps"
+import Typography from "@mui/material/Typography"
+import Workspaces from "./Menus/workspaces"
+import Recent from "./Menus/Recent"
+import Starred from "./Menus/Starred"
+import Templates from "./Menus/Templates"
+import Profiles from "./Menus/Profiles"
+import Button from "@mui/material/Button"
+import TextField from "@mui/material/TextField"
+import Badge from "@mui/material/Badge"
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone"
+import Tooltip from "@mui/material/Tooltip"
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline"
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd"
+import InputAdornment from "@mui/material/InputAdornment"
+import SearchIcon from "@mui/icons-material/Search"
+import CloseIcon from "@mui/icons-material/Close"
 
 function AppBar() {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("")
   return (
     <Box
       px={2}
@@ -36,7 +35,7 @@ function AppBar() {
         gap: 2,
         overflowX: "auto",
         bgcolor: (theme) =>
-          theme.palette.mode === "dark" ? "#2c3e50" : "#1565c0",
+          theme.palette.mode === "dark" ? "#2c3e50" : "#1565c0"
       }}
     >
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -53,7 +52,7 @@ function AppBar() {
             sx={{
               fontSize: "1.2rem",
               fontWeight: "bold",
-              color: "white",
+              color: "white"
             }}
           >
             Trello
@@ -69,7 +68,7 @@ function AppBar() {
             sx={{
               color: "white",
               border: "none",
-              "&:hover": { border: "none" },
+              "&:hover": { border: "none" }
             }}
             variant="outlined"
             startIcon={<LibraryAddIcon />}
@@ -91,7 +90,7 @@ function AppBar() {
               <InputAdornment position="start">
                 <SearchIcon
                   sx={{
-                    color: "white",
+                    color: "white"
                   }}
                 />
               </InputAdornment>
@@ -101,11 +100,11 @@ function AppBar() {
                 fontSize="small"
                 sx={{
                   color: searchValue ? "white" : "transparent",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
                 onClick={() => setSearchValue("")}
               />
-            ),
+            )
           }}
           sx={{
             minWidth: 120,
@@ -115,13 +114,13 @@ function AppBar() {
             "& label.Mui-focused": { color: "white" },
             ".MuiOutlinedInput-root": {
               "& fieldset": {
-                borderColor: "dark",
+                borderColor: "dark"
               },
               "&:hover fieldset": { borderColor: "white" },
               "&.Mui-focused fieldset": {
-                borderColor: "white",
-              },
-            },
+                borderColor: "white"
+              }
+            }
           }}
         />
         <ModeSelect />
@@ -138,7 +137,7 @@ function AppBar() {
         </Tooltip>
       </Box>
     </Box>
-  );
+  )
 }
 
-export default AppBar;
+export default AppBar

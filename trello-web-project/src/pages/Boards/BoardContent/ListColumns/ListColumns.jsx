@@ -1,11 +1,11 @@
-import Button from "@mui/material/Button";
-import Column from "./Column/Column";
-import Box from "@mui/material/Box";
-import NoteAddIcon from "@mui/icons-material/NoteAdd";
+import Button from "@mui/material/Button"
+import Column from "./Column/Column"
+import Box from "@mui/material/Box"
+import NoteAddIcon from "@mui/icons-material/NoteAdd"
 import {
   SortableContext,
-  horizontalListSortingStrategy,
-} from "@dnd-kit/sortable";
+  horizontalListSortingStrategy
+} from "@dnd-kit/sortable"
 
 function ListColumns({ columns }) {
   return (
@@ -21,7 +21,7 @@ function ListColumns({ columns }) {
           height: "100%",
           overflowX: "auto",
           overflowY: "hidden",
-          "&::-webkit-scrollbar-track": { m: 2 },
+          "&::-webkit-scrollbar-track": { m: 2 }
         }}
       >
         {columns?.map((column) => (
@@ -35,7 +35,7 @@ function ListColumns({ columns }) {
             mx: 2,
             borderRadius: "6px",
             height: "fit-content",
-            bgcolor: "#ffffff3d",
+            bgcolor: "#ffffff3d"
           }}
         >
           <Button
@@ -45,7 +45,7 @@ function ListColumns({ columns }) {
               width: "100%",
               justifyContent: "flex-start",
               pl: 2.5,
-              py: 1,
+              py: 1
             }}
           >
             Add New Column
@@ -53,7 +53,7 @@ function ListColumns({ columns }) {
         </Box>
       </Box>
     </SortableContext>
-  );
+  )
 }
 
-export default ListColumns;
+export default ListColumns

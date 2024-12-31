@@ -23,7 +23,7 @@ export const mockData = {
           "card-id-04",
           "card-id-05",
           "card-id-06",
-          "card-id-07",
+          "card-id-07"
         ],
         cards: [
           {
@@ -39,8 +39,8 @@ export const mockData = {
             attachments: [
               "test attachment 01",
               "test attachment 02",
-              "test attachment 03",
-            ],
+              "test attachment 03"
+            ]
           },
           {
             _id: "card-id-02",
@@ -51,7 +51,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-03",
@@ -62,7 +62,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-04",
@@ -73,7 +73,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-05",
@@ -84,7 +84,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-06",
@@ -95,7 +95,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-07",
@@ -106,9 +106,9 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
-          },
-        ],
+            attachments: []
+          }
+        ]
       },
       {
         _id: "column-id-02",
@@ -125,7 +125,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-09",
@@ -136,7 +136,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-10",
@@ -147,9 +147,9 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
-          },
-        ],
+            attachments: []
+          }
+        ]
       },
       {
         _id: "column-id-03",
@@ -166,7 +166,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-12",
@@ -177,7 +177,7 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
+            attachments: []
           },
           {
             _id: "card-id-13",
@@ -188,10 +188,10 @@ export const mockData = {
             cover: null,
             memberIds: [],
             comments: [],
-            attachments: [],
-          },
-        ],
-      },
-    ],
-  },
-};
+            attachments: []
+          }
+        ]
+      }
+    ]
+  }
+}

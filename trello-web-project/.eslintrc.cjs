@@ -4,7 +4,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
+    "plugin:react-hooks/recommended"
   ],
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   settings: { react: { version: "18.2" } },
@@ -21,8 +21,8 @@ module.exports = {
     "no-restricted-imports": [
       "error",
       {
-        patterns: ["@mui/*/*/*"],
-      },
+        patterns: ["@mui/*/*/*"]
+      }
     ],
 
     // Rule
@@ -35,8 +35,8 @@ module.exports = {
     "space-before-blocks": ["error", "always"],
     "object-curly-spacing": [1, "always"],
     indent: ["warn", 2],
-    // semi: [1, "never"],
-    semi: [1, "alway"],
+    semi: [1, "never"],
+    // semi: [0, "alway"],
     // quotes: ["error", "single"],
     "array-bracket-spacing": 1,
     "linebreak-style": 0,
@@ -44,6 +44,6 @@ module.exports = {
     "keyword-spacing": 1,
     "comma-dangle": 1,
     "comma-spacing": 1,
-    "arrow-spacing": 1,
-  },
-};
+    "arrow-spacing": 1
+  }
+}
