@@ -1,51 +1,51 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ContentCut from "@mui/icons-material/ContentCut";
-import ContentCopy from "@mui/icons-material/ContentCopy";
-import ContentPaste from "@mui/icons-material/ContentPaste";
-import Cloud from "@mui/icons-material/Cloud";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Tooltip from "@mui/material/Tooltip";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import AddCardIcon from "@mui/icons-material/AddCard";
-import DragHandleIcon from "@mui/icons-material/DragHandle";
-import ListCards from "./ListCards/ListCards";
-import { mapOrder } from "~/utils/sorts";
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
+import React from "react"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import Divider from "@mui/material/Divider"
+import ListItemText from "@mui/material/ListItemText"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import ContentCut from "@mui/icons-material/ContentCut"
+import ContentCopy from "@mui/icons-material/ContentCopy"
+import ContentPaste from "@mui/icons-material/ContentPaste"
+import Cloud from "@mui/icons-material/Cloud"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import Tooltip from "@mui/material/Tooltip"
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
+import AddCardIcon from "@mui/icons-material/AddCard"
+import DragHandleIcon from "@mui/icons-material/DragHandle"
+import ListCards from "./ListCards/ListCards"
+import { mapOrder } from "~/utils/sorts"
+import { useSortable } from "@dnd-kit/sortable"
+import { CSS } from "@dnd-kit/utilities"
 
 function Column({ column }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({
       id: column._id,
-      data: { ...column },
-    });
+      data: { ...column }
+    })
 
   const dndKitColumnStyle = {
     // touchAction: "none", // Dành cho sensor default dạng PointerSensor
     // Nếu sử dụng tranform như docs sẽ lỗi kiểu stretch
     //https://github.com/clauderic/dnd-kit/...
     transform: CSS.Translate.toString(transform),
-    transition,
-  };
+    transition
+  }
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const open = Boolean(anchorEl)
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
   // Sort Column
-  const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, "_id");
+  const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, "_id")
   return (
     <Box
       ref={setNodeRef}
@@ -61,7 +61,7 @@ function Column({ column }) {
         borderRadius: "6px",
         height: "fit-content",
         maxHeight: (theme) =>
-          `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`,
+          `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
       }}
     >
       {/*Box Column Header */}
@@ -71,7 +71,7 @@ function Column({ column }) {
           p: 2,
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-between"
         }}
       >
         <Typography
@@ -79,7 +79,7 @@ function Column({ column }) {
           sx={{
             fontSize: "1rem",
             fontWeight: "bold",
-            cursor: "pointer",
+            cursor: "pointer"
           }}
         >
           {column?.title}
@@ -102,7 +102,7 @@ function Column({ column }) {
               open={open}
               onClose={handleClose}
               MenuListProps={{
-                "aria-labelledby": "basic-column-dropdown",
+                "aria-labelledby": "basic-column-dropdown"
               }}
             >
               <MenuItem>
@@ -156,7 +156,7 @@ function Column({ column }) {
           p: 2,
           display: "flex",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-between"
         }}
       >
         <Button startIcon={<AddCardIcon />}>Add new card</Button>
@@ -165,7 +165,7 @@ function Column({ column }) {
         </Tooltip>
       </Box>
     </Box>
-  );
+  )
 }
 
-export default Column;
+export default Column

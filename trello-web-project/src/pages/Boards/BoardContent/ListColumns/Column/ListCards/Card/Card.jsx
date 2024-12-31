@@ -1,12 +1,12 @@
-import { Card as MuiCard } from "@mui/material";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import GroupIcon from "@mui/icons-material/Group";
-import CommentIcon from "@mui/icons-material/Comment";
-import AttachmentIcon from "@mui/icons-material/Attachment";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { Card as MuiCard } from "@mui/material"
+import CardActions from "@mui/material/CardActions"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import GroupIcon from "@mui/icons-material/Group"
+import CommentIcon from "@mui/icons-material/Comment"
+import AttachmentIcon from "@mui/icons-material/Attachment"
+import Button from "@mui/material/Button"
+import Typography from "@mui/material/Typography"
 
 function Card({ card }) {
   const shouldShowCardActions = () => {
@@ -14,14 +14,14 @@ function Card({ card }) {
       !!card?.memberIds?.length ||
       !!card?.comments?.length ||
       !!card?.attachments?.length
-    );
-  };
+    )
+  }
   return (
     <MuiCard
       sx={{
         cursor: "pointer",
         boxShadow: "0 1px 1px rgba(0, 0, 0, 0.2)",
-        overflow: "unset",
+        overflow: "unset"
       }}
     >
       {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover} />}
@@ -49,7 +49,7 @@ function Card({ card }) {
         </CardActions>
       )}
     </MuiCard>
-  );
+  )
 }
 
-export default Card;
+export default Card

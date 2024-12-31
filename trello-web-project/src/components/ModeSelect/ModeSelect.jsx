@@ -1,24 +1,24 @@
-import { useColorScheme } from "@mui/material/styles";
+import { useColorScheme } from "@mui/material/styles"
 
 // FORM
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import InputLabel from "@mui/material/InputLabel"
+import MenuItem from "@mui/material/MenuItem"
+import FormControl from "@mui/material/FormControl"
+import Select from "@mui/material/Select"
 // ICON
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
+import LightModeIcon from "@mui/icons-material/LightMode"
+import DarkModeIcon from "@mui/icons-material/DarkMode"
+import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness"
 // BOX
-import Box from "@mui/material/Box";
+import Box from "@mui/material/Box"
 
 function ModeSelect() {
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme()
   const handleChange = (event) => {
-    const selectedMode = event.target.value;
-    setMode(selectedMode);
+    const selectedMode = event.target.value
+    setMode(selectedMode)
     // setAge(event.target.value);
-  };
+  }
 
   return (
     <FormControl size="small" sx={{ minWidth: 120 }}>
@@ -39,9 +39,9 @@ function ModeSelect() {
           ".MMuiOutlinedInput-notchedOutline": { borderColor: "white" },
           "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "white" },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white",
+            borderColor: "white"
           },
-          ".MuiSvgIcon-root": { color: "white" },
+          ".MuiSvgIcon-root": { color: "white" }
         }}
       >
         <MenuItem value="light">
@@ -61,7 +61,7 @@ function ModeSelect() {
         </MenuItem>
       </Select>
     </FormControl>
-  );
+  )
 }
 
-export default ModeSelect;
+export default ModeSelect

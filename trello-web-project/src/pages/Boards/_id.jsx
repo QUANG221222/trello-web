@@ -1,8 +1,9 @@
-import { Container } from "@mui/material";
-import AppBar from "~/components/AppBar/AppBar";
-import BoardBar from "./BoardBar/BoardBar";
-import BoxContent from "./BoardContent/BoardContent";
-import { mockData } from "~/apis/mock-data";
+import { Container } from "@mui/material"
+import AppBar from "~/components/AppBar/AppBar"
+import BoardBar from "./BoardBar/BoardBar"
+import BoxContent from "./BoardContent/BoardContent"
+import { mockData } from "~/apis/mock-data"
+
 
 function Board() {
   return (
@@ -11,7 +12,7 @@ function Board() {
       <BoardBar board={mockData?.board} />
       <BoxContent board={mockData?.board} />
     </Container>
-  );
+  )
 }
 
-export default Board;
+export default Board
