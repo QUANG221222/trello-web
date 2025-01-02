@@ -37,7 +37,7 @@ module.exports = {
     indent: ["warn", 2],
     semi: [1, "never"],
     // semi: [0, "alway"],
-    // quotes: ["error", "single"],
+    quotes: ["warn", "double"],
     "array-bracket-spacing": 1,
     "linebreak-style": 0,
     "no-unexpected-multiline": "warn",
