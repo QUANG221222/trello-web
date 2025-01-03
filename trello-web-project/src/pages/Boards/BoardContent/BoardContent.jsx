@@ -1,6 +1,6 @@
-import Box from "@mui/material/Box"
-import ListColumns from "./ListColumns/ListColumns"
-import { mapOrder } from "~/utils/sorts"
+import Box from '@mui/material/Box'
+import ListColumns from './ListColumns/ListColumns'
+import { mapOrder } from '~/utils/sorts'
 import {
   DndContext,
   // PointerSensor,
@@ -10,16 +10,16 @@ import {
   useSensors,
   DragOverlay,
   defaultDropAnimationSideEffects
-} from "@dnd-kit/core"
-import { arrayMove } from "@dnd-kit/sortable"
-import { useEffect, useState } from "react"
+} from '@dnd-kit/core'
+import { arrayMove } from '@dnd-kit/sortable'
+import { useEffect, useState } from 'react'
 
-import Column from "./ListColumns/Column/Column"
-import Card from "./ListColumns/Column/ListCards/Card/Card"
+import Column from './ListColumns/Column/Column'
+import Card from './ListColumns/Column/ListCards/Card/Card'
 
 const ACTIVE_DRAG_ITEM_TYPE = {
-  COLUMN: "ACTIVE_DRAG_ITEM_TYPE_COLUMN",
-  CARD: "ACTIVE_DRAG_ITEM_TYPE_CARD"
+  COLUMN: 'ACTIVE_DRAG_ITEM_TYPE_COLUMN',
+  CARD: 'ACTIVE_DRAG_ITEM_TYPE_CARD'
 }
 
 function BoxContent({ board }) {
@@ -52,7 +52,7 @@ function BoxContent({ board }) {
     const orderedColumns = mapOrder(
       board?.columns,
       board?.columnOrderIds,
-      "_id"
+      '_id'
     )
     setOrderedColumns(orderedColumns)
   }, [board])
@@ -61,7 +61,11 @@ function BoxContent({ board }) {
   const handleDragStart = (event) => {
     // console.log("handleDragStart: ", event)
     setactiveDragItemId(event?.active?.id)
-    setactiveDragItemType(event?.active?.data?.current?.columnId ? ACTIVE_DRAG_ITEM_TYPE.CARD : ACTIVE_DRAG_ITEM_TYPE.COLUMN)
+    setactiveDragItemType(
+      event?.active?.data?.current?.columnId
+        ? ACTIVE_DRAG_ITEM_TYPE.CARD
+        : ACTIVE_DRAG_ITEM_TYPE.COLUMN
+    )
     setactiveDragItemData(event?.active?.data?.current)
   }
 
@@ -103,7 +107,7 @@ function BoxContent({ board }) {
     sideEffects: defaultDropAnimationSideEffects({
       styles: {
         active: {
-          opacity: "0.5"
+          opacity: '0.5'
         }
       }
     })
@@ -117,18 +121,22 @@ function BoxContent({ board }) {
     >
       <Box
         sx={{
-          width: "100%",
+          width: '100%',
           height: (theme) => theme.trello.boardContentHeight,
           bgcolor: (theme) =>
-            theme.palette.mode === "dark" ? "#34495e" : "#1976d2",
-          p: "10px 0"
+            theme.palette.mode === 'dark' ? '#34495e' : '#1976d2',
+          p: '10px 0'
         }}
       >
         <ListColumns columns={orderedColumns} />
         <DragOverlay dropAnimation={customDropAnimation}>
           {!activeDragItemType && null}
-          {(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN) && <Column column={activeDragItemData}/>}
-          {(activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD) && <Card card={activeDragItemData}/>}
+          {activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.COLUMN && (
+            <Column column={activeDragItemData} />
+          )}
+          {activeDragItemType === ACTIVE_DRAG_ITEM_TYPE.CARD && (
+            <Card card={activeDragItemData} />
+          )}
         </DragOverlay>
       </Box>
     </DndContext>

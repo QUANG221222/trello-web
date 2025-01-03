@@ -1,13 +1,13 @@
-import Box from "@mui/material/Box"
-import React from "react"
-import Button from "@mui/material/Button"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import Divider from "@mui/material/Divider"
-import ListItemText from "@mui/material/ListItemText"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
-import Check from "@mui/icons-material/Check"
+import Box from '@mui/material/Box'
+import React from 'react'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import Check from '@mui/icons-material/Check'
 
 function Recent() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -22,11 +22,11 @@ function Recent() {
     <Box>
       <div>
         <Button
-          sx={{ color: "white" }}
+          sx={{ color: 'white' }}
           id="basic-button-recent"
-          aria-controls={open ? "basic-menu-recent" : undefined}
+          aria-controls={open ? 'basic-menu-recent' : undefined}
           aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
           endIcon={<ExpandMoreIcon />}
         >
@@ -37,7 +37,7 @@ function Recent() {
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          MenuListProps={{ "aria-labelledby": "basic-button-recent" }}
+          MenuListProps={{ 'aria-labelledby': 'basic-button-recent' }}
         >
           <MenuItem>
             <ListItemText inset>Single</ListItemText>

@@ -1,10 +1,10 @@
-import { experimental_extendTheme as extendTheme } from "@mui/material/styles"
+import { experimental_extendTheme as extendTheme } from '@mui/material/styles'
 
-const APP_BAR_HEIGHT = "58px"
-const BOARD_BAR_HEIGHT = "60px"
+const APP_BAR_HEIGHT = '58px'
+const BOARD_BAR_HEIGHT = '60px'
 const BOARD_CONTENT_HEIGHT = `calc(100vh - ${APP_BAR_HEIGHT} - ${BOARD_BAR_HEIGHT})`
-const COLUMN_HEADER_HEIGHT = "50px"
-const COLUMN_FOOTER_HEIGHT = "56px"
+const COLUMN_HEADER_HEIGHT = '50px'
+const COLUMN_FOOTER_HEIGHT = '56px'
 
 // Create a theme instance.
 const theme = extendTheme({
@@ -30,8 +30,8 @@ const theme = extendTheme({
         // Name of the slot
         root: {
           // Some CSS
-          textTransform: "none",
-          borderWidth: "0.5px"
+          textTransform: 'none',
+          borderWidth: '0.5px'
           // "&:hover": { borderWidth: "0.5px" },
         }
       }
@@ -40,7 +40,7 @@ const theme = extendTheme({
       styleOverrides: {
         root: {
           // color: theme.palette.primary.main,
-          fontSize: "0.875rem",
+          fontSize: '0.875rem',
           // ".MuiOutlinedInput-notchedOutline": {
           //   borderColor: theme.palette.primary.light,
           // },
@@ -49,14 +49,14 @@ const theme = extendTheme({
           //     borderColor: theme.palette.primary.main,
           //   },
           // },
-          "& fieldset": {
-            borderWidth: "0.5px !important"
+          '& fieldset': {
+            borderWidth: '0.5px !important'
           },
-          "&:hover fieldset": {
-            borderWidth: "1px !important"
+          '&:hover fieldset': {
+            borderWidth: '1px !important'
           },
-          "&.Mui-focused fieldset": {
-            borderWidth: "1px !important"
+          '&.Mui-focused fieldset': {
+            borderWidth: '1px !important'
           }
         }
       }
@@ -65,7 +65,7 @@ const theme = extendTheme({
       styleOverrides: {
         root: {
           // color: theme.palette.primary.light,
-          fontSize: "0.875rem"
+          fontSize: '0.875rem'
         }
       }
     },
@@ -73,24 +73,24 @@ const theme = extendTheme({
       styleOverrides: {
         root: {
           // color: theme.palette.primary.light,
-          "&.MuiTypography-body1": { fontSize: "0.875rem" }
+          '&.MuiTypography-body1': { fontSize: '0.875rem' }
         }
       }
     },
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          "*::-webkit-scrollbar": {
-            width: "4px",
-            height: "4px"
+          '*::-webkit-scrollbar': {
+            width: '4px',
+            height: '4px'
           },
-          "*::-webkit-scrollbar-thumb": {
-            background: " #dcdde1",
-            borderRadius: "8px"
+          '*::-webkit-scrollbar-thumb': {
+            background: ' #dcdde1',
+            borderRadius: '8px'
           },
-          "*::-webkit-scrollbar-thumb:hover": {
-            background: "white",
-            borderRadius: "8px"
+          '*::-webkit-scrollbar-thumb:hover': {
+            background: 'white',
+            borderRadius: '8px'
           }
         }
       }

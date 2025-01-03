@@ -1,32 +1,38 @@
-import React from "react"
-import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import Divider from "@mui/material/Divider"
-import ListItemText from "@mui/material/ListItemText"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import ContentCut from "@mui/icons-material/ContentCut"
-import ContentCopy from "@mui/icons-material/ContentCopy"
-import ContentPaste from "@mui/icons-material/ContentPaste"
-import Cloud from "@mui/icons-material/Cloud"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
-import Tooltip from "@mui/material/Tooltip"
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import AddCardIcon from "@mui/icons-material/AddCard"
-import DragHandleIcon from "@mui/icons-material/DragHandle"
-import ListCards from "./ListCards/ListCards"
-import { mapOrder } from "~/utils/sorts"
-import { useSortable } from "@dnd-kit/sortable"
-import { CSS } from "@dnd-kit/utilities"
+import React from 'react'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ContentCut from '@mui/icons-material/ContentCut'
+import ContentCopy from '@mui/icons-material/ContentCopy'
+import ContentPaste from '@mui/icons-material/ContentPaste'
+import Cloud from '@mui/icons-material/Cloud'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import Tooltip from '@mui/material/Tooltip'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'
+import AddCardIcon from '@mui/icons-material/AddCard'
+import DragHandleIcon from '@mui/icons-material/DragHandle'
+import ListCards from './ListCards/ListCards'
+import { mapOrder } from '~/utils/sorts'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 
 function Column({ column }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
-    useSortable({
-      id: column._id,
-      data: { ...column }
-    })
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging
+  } = useSortable({
+    id: column._id,
+    data: { ...column }
+  })
 
   const dndKitColumnStyle = {
     // touchAction: "none", // Dành cho sensor default dạng PointerSensor
@@ -35,7 +41,7 @@ function Column({ column }) {
     transform: CSS.Translate.toString(transform),
     transition,
     // Chiều cáo phải luôn max 100% vì nếu không sẽ lỗi lúc kéo thả column ngắn qua column dài thì phải kéo ở khu vực giữa rất khó chịu . Lưu ý: lúc này phải kết hợp với {...listeners} để lắng nghe sự kiện kéo thả nằm ở trong Box chứ không phải ở div bên ngoài cùng để tránh trường hợp kéo vào vùng xanh
-    height: "100%",
+    height: '100%',
     opacity: isDragging ? 0.5 : undefined
   }
 
@@ -48,20 +54,20 @@ function Column({ column }) {
     setAnchorEl(null)
   }
   // Sort Column
-  const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, "_id")
+  const orderedCard = mapOrder(column?.cards, column?.cardOrderIds, '_id')
   // Phải bọc div ở đầu vì vấn đề chiều cao của column khi kéo thả sẽ có bug kiểu flickering (video 32)
   return (
-    <div ref={setNodeRef} style={dndKitColumnStyle} {...attributes} >
+    <div ref={setNodeRef} style={dndKitColumnStyle} {...attributes}>
       <Box
         {...listeners}
         sx={{
-          minWidth: "300px",
-          maxWidth: "300px",
+          minWidth: '300px',
+          maxWidth: '300px',
           bgcolor: (theme) =>
-            theme.palette.mode === "dark" ? "#333643" : "#ebecf0",
+            theme.palette.mode === 'dark' ? '#333643' : '#ebecf0',
           ml: 2,
-          borderRadius: "6px",
-          height: "fit-content",
+          borderRadius: '6px',
+          height: 'fit-content',
           maxHeight: (theme) =>
             `calc(${theme.trello.boardContentHeight} - ${theme.spacing(5)})`
         }}
@@ -71,17 +77,17 @@ function Column({ column }) {
           sx={{
             height: (theme) => theme.trello.columnHeaderHeight,
             p: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between"
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              cursor: "pointer"
+              fontSize: '1rem',
+              fontWeight: 'bold',
+              cursor: 'pointer'
             }}
           >
             {column?.title}
@@ -90,11 +96,13 @@ function Column({ column }) {
             <div>
               <Tooltip title="More Option">
                 <ExpandMoreIcon
-                  sx={{ color: "text.primary", cursor: "pointer" }}
+                  sx={{ color: 'text.primary', cursor: 'pointer' }}
                   id="basic-column-dropdown"
-                  aria-controls={open ? "basic-menu-column-dropdown" : undefined}
+                  aria-controls={
+                    open ? 'basic-menu-column-dropdown' : undefined
+                  }
                   aria-haspopup="true"
-                  aria-expanded={open ? "true" : undefined}
+                  aria-expanded={open ? 'true' : undefined}
                   onClick={handleClick}
                 />
               </Tooltip>
@@ -104,7 +112,7 @@ function Column({ column }) {
                 open={open}
                 onClose={handleClose}
                 MenuListProps={{
-                  "aria-labelledby": "basic-column-dropdown"
+                  'aria-labelledby': 'basic-column-dropdown'
                 }}
               >
                 <MenuItem>
@@ -155,14 +163,14 @@ function Column({ column }) {
           sx={{
             height: (theme) => theme.trello.columnFooterHeight,
             p: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between"
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between'
           }}
         >
           <Button startIcon={<AddCardIcon />}>Add new card</Button>
           <Tooltip title="Drag to move">
-            <DragHandleIcon sx={{ cursor: "pointer" }} />
+            <DragHandleIcon sx={{ cursor: 'pointer' }} />
           </Tooltip>
         </Box>
       </Box>
