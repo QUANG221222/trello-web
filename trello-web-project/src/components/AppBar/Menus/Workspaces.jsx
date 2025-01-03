@@ -1,17 +1,17 @@
-import Box from "@mui/material/Box"
-import React from "react"
-import Button from "@mui/material/Button"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import Divider from "@mui/material/Divider"
-import ListItemText from "@mui/material/ListItemText"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import Typography from "@mui/material/Typography"
-import ContentCut from "@mui/icons-material/ContentCut"
-import ContentCopy from "@mui/icons-material/ContentCopy"
-import ContentPaste from "@mui/icons-material/ContentPaste"
-import Cloud from "@mui/icons-material/Cloud"
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import Box from '@mui/material/Box'
+import React from 'react'
+import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Divider from '@mui/material/Divider'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import Typography from '@mui/material/Typography'
+import ContentCut from '@mui/icons-material/ContentCut'
+import ContentCopy from '@mui/icons-material/ContentCopy'
+import ContentPaste from '@mui/icons-material/ContentPaste'
+import Cloud from '@mui/icons-material/Cloud'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 function Workspaces() {
   const [anchorEl, setAnchorEl] = React.useState(null)
@@ -26,11 +26,11 @@ function Workspaces() {
     <Box>
       <div>
         <Button
-          sx={{ color: "white" }}
+          sx={{ color: 'white' }}
           id="basic-button-workspaces"
-          aria-controls={open ? "basic-menu-workspaces" : undefined}
+          aria-controls={open ? 'basic-menu-workspaces' : undefined}
           aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
           endIcon={<ExpandMoreIcon />}
         >
@@ -42,7 +42,7 @@ function Workspaces() {
           open={open}
           onClose={handleClose}
           MenuListProps={{
-            "aria-labelledby": "basic-button-workspaces"
+            'aria-labelledby': 'basic-button-workspaces'
           }}
         >
           <MenuItem>
