@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box'
 import ListColumns from './ListColumns/ListColumns'
 import { mapOrder } from '~/utils/sorts'
+import { generatePlaceholderCard } from '~/utils/formatters'
 import {
   DndContext,
   // PointerSensor,
@@ -18,7 +19,7 @@ import {
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
 import { useEffect, useState, useCallback, useRef } from 'react'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isEmpty } from 'lodash'
 
 import Column from './ListColumns/Column/Column'
 import Card from './ListColumns/Column/ListCards/Card/Card'
@@ -105,11 +106,11 @@ function BoxContent({ board }) {
           : overColumn?.cards?.length + 1
 
       //Clone mảng OrderColumnsState cũ ra một cái mới để xử lý dữ liệu rồi return - cập nhật lại orderedColumnsState mới
-      const nexColumns = cloneDeep(prevColums)
-      const nextActiveColumn = nexColumns.find(
+      const nextColumns = cloneDeep(prevColums)
+      const nextActiveColumn = nextColumns.find(
         (column) => column._id === activeColumn._id
       )
-      const nextOverColumn = nexColumns.find(
+      const nextOverColumn = nextColumns.find(
         (column) => column._id === overColumn._id
       )
 
@@ -119,6 +120,11 @@ function BoxContent({ board }) {
         nextActiveColumn.cards = nextActiveColumn.cards.filter(
           (card) => card._id !== activeDraggingCardId
         )
+
+        //Thêm placeholderCard nếu column rỗng: bị kéo card đi, ko còn cái nào nữa
+        if (isEmpty(nextActiveColumn.cards)) {
+          nextActiveColumn.cards = [generatePlaceholderCard(nextActiveColumn)]
+        }
         //cập nhật lại cardOrderIds cho chuẩn dữ liệu
         nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(
           (card) => card._id
@@ -141,13 +147,20 @@ function BoxContent({ board }) {
           ...activeDraggingCardData,
           columnId: nextOverColumn._id
         })
+
+        // Xóa cái placeholder đi khi đang tồn tại
+        nextOverColumn.cards = nextOverColumn.cards.filter(
+          (card) => !card.FE_PlaceholderCard
+        )
+
         //cập nhật lại cardOrderIds cho chuẩn dữ liệu
         nextOverColumn.cardOrderIds = nextOverColumn.cards.map(
           (card) => card._id
         )
       }
 
-      return nexColumns
+      //Trả về danh sách board mới
+      return nextColumns
     })
   }
 
