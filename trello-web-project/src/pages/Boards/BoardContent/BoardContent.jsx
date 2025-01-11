@@ -11,9 +11,9 @@ import {
   DragOverlay,
   defaultDropAnimationSideEffects,
   closestCorners,
-  closestCenter,
+  // closestCenter,
   pointerWithin,
-  rectIntersection,
+  // rectIntersection,
   getFirstCollision
 } from '@dnd-kit/core'
 import { arrayMove } from '@dnd-kit/sortable'
@@ -341,13 +341,19 @@ function BoxContent({ board }) {
       //Tìm các điểm giao nhau, va chạm - intersection với con trỏ
       const pointerIntersection = pointerWithin(args)
 
-      //Thuật toán phát hiện va chạm sẽ trả về 1 mảng các va chạm ở đây
-      const intersections = !!pointerIntersection?.length
-        ? pointerIntersection
-        : rectIntersection(args)
+      //Tìm các điểm giao nhau, va chạm, trả về 1 mảng các va chạm - intersictions với con trỏ
+      //Nếu pointerIntersection là mảng rỗng, return luôn ko cần làm gì hết
+      //Fix triệt để cái bug flickering của thư viện dnd-kit trong trường hợp sau:
+      //Kéo một cái card có img cover và kéo lên phí trên cùng ra khỏi khu vực kéo thả
+      if (!pointerIntersection?.length) return
 
-      //Tìm overId đầu tiên trong đám Intersection ở trên
-      let overId = getFirstCollision(intersections, 'id')
+      //Thuật toán phát hiện va chạm sẽ trả về 1 mảng các va chạm ở đây (không cần bước này nữa - video 37.1)
+      // const intersections = !!pointerIntersection?.length
+      //   ? pointerIntersection
+      //   : rectIntersection(args)
+
+      //Tìm overId đầu tiên trong đám pointerIntersection ở trên
+      let overId = getFirstCollision(pointerIntersection, 'id')
       //
       if (overId) {
         //nếu cái over nó là column thì sẽ tìm tới cái cardId gần nhất bên trong khu vực va chạm đó dựa vào thuật toán phát hiện va chạm closestCent hoặc closestCorner đều được. Tuy nhiên ở đây dùng closesCenter mượt hơn
@@ -356,7 +362,7 @@ function BoxContent({ board }) {
         )
         if (checkColumn) {
           // console.log('OverId Before', overId)
-          overId = closestCenter({
+          overId = closestCorners({
             ...args,
             droppableContainers: args.droppableContainers.filter(
               (container) => {
